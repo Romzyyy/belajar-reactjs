@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Header from './components/Header';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [title, setTitle] = useState('welcome to my app');
+    const [age, setAge] = useState(20);
+
+    const changeTitle = () => {
+        setTitle('title Chaged');
+        setAge(50);
+    };
+    return (
+        <div>
+            <Header />
+            <h1>{title}</h1>
+            <h1>Age : {age}</h1>
+            <button onClick={changeTitle}>Change Title</button>
+        </div>
+    );
 }
 
 export default App;
